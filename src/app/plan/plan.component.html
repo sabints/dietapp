@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-primary text-white shadow rounded-border-30">
+            <div class="card-body">
+                <div class="text-white-50 small">Next Meal @</div>
+                {{ nextmeal.time }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4 br" *ngFor="let item of TodayData.dishes">
+        <div class="row shadow">
+            <div class="col-4 pc-left">
+                <span class="tm-span">{{item.time}}</span>
+            </div>
+            <div class="col-8 pc-right">
+                <span *ngFor="let dish of item.dish"><i class="fas fa-utensils"></i>&nbsp;{{dish.name}}&nbsp;|&nbsp; <i
+                        class="fas fa-chart-pie"></i>&nbsp; {{dish.unit}} </span>
+            </div>
+        </div>
+    </div>
+</div>  

@@ -1,0 +1,35 @@
+.plan-card{
+    margin: 2px;
+}
+.pc-left{
+    background: #ff5722; 
+    padding: 40px 20px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    span{
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        z-index: 100000;
+        position: absolute;
+        top: 20px;
+        padding: 10px;
+    }
+}
+.pc-right{
+    padding: 15px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    span{
+        display: block;
+        color: #37474f;
+        font-size: 14px;
+    }
+}
+.br{
+    margin: 8px 12px;
+}
+ .br
+ .row {
+    border-radius: 13px;
+ }
