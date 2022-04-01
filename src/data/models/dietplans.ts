@@ -1,9 +1,12 @@
-export const DietData = [
+import { IDishes } from "../interfaces/shared.interface";
+
+export const DietData: Array<IDishes> = [
     {
-        time: "08:00 AM",
+        time: "08:00",
         dish: [
             {
                 day: ["Mon", "Wed", "Fri"],
+                next: false,
                 item:
                     [{
                         name: "Turmeric Cinnamon Water",
@@ -15,7 +18,7 @@ export const DietData = [
             },
             {
                 day: ["Tue", "Thu", "Sat"],
-                item:
+                next: false, item:
                     [{
                         name: "Luke Warm Jeera Lemon Water",
                         unit: "1 Glass",
@@ -28,11 +31,11 @@ export const DietData = [
 
     },
     {
-        time: "08:30 AM",
+        time: "08:30",
         dish: [
             {
-              day: ["Mon"],
-                item:
+                day: ["Mon"],
+                next: false, item:
                     [{
                         name: "Wheat Dosa",
                         unit: "3 piece",
@@ -42,8 +45,8 @@ export const DietData = [
                     }]
             },
             {
-              day: ["Tue"],
-                item:
+                day: ["Tue"],
+                next: false, item:
                     [{
                         name: "Wheat Puttu ",
                         unit: "(1 portion(1/3 of kutti))",
@@ -53,8 +56,8 @@ export const DietData = [
                     }]
             },
             {
-              day: ["Thu"],
-                item:
+                day: ["Thu"],
+                next: false, item:
                     [{
                         name: "Chapatti",
                         unit: "2 roti/chapati",
@@ -64,8 +67,8 @@ export const DietData = [
                     }]
             },
             {
-              day: ["Fri"],
-                item:
+                day: ["Fri"],
+                next: false, item:
                     [{
                         name: "Vegetable Broken Wheat Upma",
                         unit: "1 katori",
@@ -78,8 +81,8 @@ export const DietData = [
                     }]
             },
             {
-              day: ["Sat"],
-                item:
+                day: ["Sat"],
+                next: false, item:
                     [{
                         name: "Vegetable Oats Porridge",
                         unit: "1 katori",
@@ -92,8 +95,8 @@ export const DietData = [
                     }]
             },
             {
-              day: ["Sat"],
-                item:
+                day: ["Sat"],
+                next: false, item:
                     [{
                         name: "Brown Bread",
                         unit: "2 slice",
@@ -106,8 +109,8 @@ export const DietData = [
                     }]
             },
             {
-              day: ["Mon"],
-                item:
+                day: ["Mon"],
+                next: false, item:
                     [{
                         name: "Vegetable Paneer Oats",
                         unit: "1 katori",
@@ -119,11 +122,11 @@ export const DietData = [
         ]
 
     }, {
-        time: "10:30 AM",
+        time: "10:30",
         dish: [
             {
-               day: ["Mon"],
-                item:
+                day: ["Mon"],
+                next: false, item:
                     [{
                         name: "Pear",
                         unit: "1 small",
@@ -133,8 +136,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Tue","Sat"],
-                item:
+                day: ["Tue", "Sat"],
+                next: false, item:
                     [{
                         name: "Pomegranates raw",
                         unit: "3 oz",
@@ -144,8 +147,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Wed","Fri"],
-                item:
+                day: ["Wed", "Fri"],
+                next: false, item:
                     [{
                         name: "Orange",
                         unit: "1.5 small (2-3/8' dia)",
@@ -155,8 +158,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Thu"],
-                item:
+                day: ["Thu"],
+                next: false, item:
                     [{
                         name: "Apple",
                         unit: "1 small (2-3/4' dia)",
@@ -169,11 +172,11 @@ export const DietData = [
 
     },
     {
-        time: "01:30 PM",
+        time: "13:30",
         dish: [
             {
-               day: ["Mon"],
-                item:
+                day: ["Mon"],
+                next: false, item:
                     [{
                         name: "Cabbage Carrot Chapati",
                         unit: "2 roti/chapati",
@@ -186,8 +189,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Tue"],
-                item:
+                day: ["Tue"],
+                next: false, item:
                     [{
                         name: "Beetroot Chapati",
                         unit: "2 roti/chapati",
@@ -203,8 +206,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Wed"],
-                item:
+                day: ["Wed"],
+                next: false, item:
                     [{
                         name: "Dal Chapati",
                         unit: "2 roti/chapati",
@@ -220,8 +223,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Thu"],
-                item:
+                day: ["Thu"],
+                next: false, item:
 
                     [{
                         name: "Cooked Brown Rice",
@@ -238,8 +241,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Fri"],
-                item:
+                day: ["Fri"],
+                next: false, item:
 
                     [{
                         name: "Methi Chapati",
@@ -256,8 +259,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Sat"],
-                item:
+                day: ["Sat"],
+                next: false, item:
 
                     [{
                         name: "Radish Chapati",
@@ -274,8 +277,8 @@ export const DietData = [
                     }]
             },
             {
-               day: ["Sun"],
-                item:
+                day: ["Sun"],
+                next: false, item:
 
                     [{
                         name: "Veg Pulao",
@@ -295,32 +298,32 @@ export const DietData = [
 
     },
     {
-        time: "04:00 PM",
+        time: "16:00",
         dish: [
             {
-               day: ["Mon"],
-                item:
+                day: ["Mon"],
+                next: false, item:
                     [{
                         name: "Boiled Moong",
                         unit: "1 Katori",
                     }]
             }, {
-               day: ["Tue"],
-                item:
+                day: ["Tue"],
+                next: false, item:
                     [{
                         name: "Chana Sprouts",
                         unit: "1 Katori",
                     }]
             }, {
-               day: ["Wed","Thu"],
-                item:
+                day: ["Wed", "Thu"],
+                next: false, item:
                     [{
                         name: "Boiled Chana and Soyabean",
                         unit: "1 Katori",
                     }]
             }, {
-               day: ["Fri","Sat"],
-                item:
+                day: ["Fri", "Sat"],
+                next: false, item:
                     [{
                         name: "Roasted Makhana",
                         unit: "1 Katori",
@@ -329,11 +332,11 @@ export const DietData = [
         ]
 
     }, {
-        time: "08:30 PM",
+        time: "20:30",
         dish: [
             {
-               day: ["Mon"],
-                item:
+                day: ["Mon"],
+                next: false, item:
                     [{
                         name: "Besan Oats Cheela",
                         unit: "1 cheela",
@@ -345,8 +348,8 @@ export const DietData = [
                         unit: "1 Katori",
                     }]
             }, {
-               day: ["Tue"],
-                item:
+                day: ["Tue"],
+                next: false, item:
                     [{
                         name: "Mung Dal Chilla",
                         unit: "1 cheela",
@@ -358,8 +361,8 @@ export const DietData = [
                         unit: "0.5 Katori",
                     }]
             }, {
-               day: ["Wed"],
-                item:
+                day: ["Wed"],
+                next: false, item:
                     [{
                         name: "Besan Cheela with Vegetables",
                         unit: "1.5 cheela",
@@ -368,8 +371,8 @@ export const DietData = [
                         unit: "100 grams",
                     }]
             }, {
-               day: ["Thu"],
-                item:
+                day: ["Thu"],
+                next: false, item:
                     [{
                         name: "Vegetable Chicken Soup",
                         unit: "1 bowl",
@@ -378,8 +381,8 @@ export const DietData = [
                         unit: "1 Katori",
                     }]
             }, {
-               day: ["Fri"],
-                item:
+                day: ["Fri"],
+                next: false, item:
                     [{
                         name: "Multigrain Carrot Beetroot Chapati with Seeds",
                         unit: "1 roti/chapati",
@@ -391,8 +394,8 @@ export const DietData = [
                         unit: "0.5 Katori",
                     }]
             }, {
-               day: ["Sat"],
-                item:
+                day: ["Sat"],
+                next: false, item:
                     [{
                         name: "Grilled Chicken Vegetable Salad",
                         unit: "1 bowl",
