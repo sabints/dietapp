@@ -430,5 +430,4 @@ export const DietData: Array<IDishes> = [
         ]
     }
 ];
-
  
