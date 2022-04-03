@@ -15,62 +15,84 @@ export class MealDataServices {
     })
     day: string = `${new Date().toLocaleString('en-us', { weekday: 'short' })}`;
     weekday: string = `${new Date().toLocaleString('en-us', { weekday: 'long' })}`;
-    time: string =   new Date().toLocaleTimeString('en-US', { hour: "2-digit", minute: "2-digit" });
+    time: string = new Date().toLocaleTimeString('en-US', { hour: "2-digit", minute: "2-digit" });
+    timenow24Hr: string = new Date().toLocaleTimeString('en-US', { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });;
     data: Observable<INextMeal> = this.dataSource.asObservable();
     constructor() {
-
     }
 
-    sendData(data: INextMeal) {
+    setNextMeal(data: any) {
         this.dataSource.next(data);
     }
-    loadmealDatafortoday(): Array<ITodaysMeals> {
-        let todayData: Array<ITodaysMeals> = DietData.map(elements => {
-            let dish = elements.dish.filter((x: any) => x.day.includes(this.day))
-            let meal: ITodaysMeals = {
-                time: this.fomatTime(elements.time),
-                dishes: dish[0].item,
-                day:this.day
+    loadmealDatafortoday(): any {
+        let todayData: any;
+        this.returnDietData().subscribe((dData: any) => {
+
+            if (this.timenow24Hr > "22:45:00") {
+                var tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                this.day = tomorrow.toLocaleString('en-us', { weekday: 'short' })
             }
-            return meal
-        })
-        let nextmealtime = todayData.map(x => {
-            let xtime = x.time;
-            if (x.time == "08:00") {
-                xtime = "07:59"
-            }  
-            return { time: x.time, min: this.timetonum(x.time), dishes: x.dishes,day:this.day };
-        })
-        console.log(nextmealtime);
-        
-        let currtime = this.timetonum(this.time)  
-
-        let nextmeal: any = nextmealtime.filter(x => {
-            if (x.min > currtime) {
-                x.day=this.weekday
-                return x;
-            }else{
-                return null;
-            } 
-        }); 
-
-        this.sendData(nextmeal[0]);
+            debugger;
 
 
-        return todayData
+            todayData = dData.map((elements: any) => {
+                let dish = elements.dish.filter((x: any) => x.day.includes(this.day))
+
+                let meal: ITodaysMeals = {
+                    time: elements.time,
+                    dishes: dish.length > 0 ? dish[0].item : [],
+                    day: this.day
+                }
+                return meal
+            })
+        });
+        return todayData;
+
     }
 
-    fomatTime(time: string) { 
+    getNextMeal(): INextMeal {
+        debugger
+
+        let nmdata: any;
+        this.returnDietData().subscribe((dData: any) => {
+            if (this.timenow24Hr >= "22:45:00") {
+                var tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                this.day = tomorrow.toLocaleString('en-us', { weekday: 'short' })
+            }
+            nmdata = dData.map((data: any) => {
+                if ((this.timenow24Hr <= data.time)) {
+                    let dishes = data.dish.filter((x: any) => x.day.includes(this.day))
+                    // data.time = this.fomatTime(data.time);
+                    let nm: INextMeal = {
+                        day: this.day,
+                        time: data.time,
+                        dishes: dishes[0].item
+                    }
+                    return nm;
+                }
+                return null;
+            }).filter((x: any) => x != null)
+
+        })
+        return nmdata[0];
+    }
+
+
+    fomatTime(time: string) {
         // time = time.substring(0, 3) + ':' + time.substring(3);
         let date: Date = new Date(new Date().toLocaleDateString() + ' ' + time);
-        let newtime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-        return newtime; 
+        let newtime = date.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
+        return newtime;
     }
-    timetonum(time: string){
+    timetonum(time: string) {
         let date: Date = new Date(new Date().toLocaleDateString() + ' ' + time);
         return date.getTime();
     }
 
-
+    returnDietData(): any {
+        return of(Object.assign(DietData))
+    }
 
 }

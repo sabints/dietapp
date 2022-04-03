@@ -1,4 +1,4 @@
-import { Observable, of } from "rxjs";
+ 
 import { IDishes } from "../interfaces/shared.interface";
 
 export const DietData: Array<IDishes> = [
@@ -409,7 +409,26 @@ export const DietData: Array<IDishes> = [
         ]
 
     },
-
+    {
+        time:"22:00:00",
+        objectId:"",
+        dish:[ 
+            {
+                day: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                next:false,
+                item:[
+                    {
+                        name:"Pumpkin Seeds",
+                        unit:"1 tablespoon"
+                    },
+                    {
+                        name:"Chamomile Tea",
+                        unit:"1 glass"
+                    }
+                ]
+            }
+        ]
+    }
 ];
 
  

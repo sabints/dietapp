@@ -24,6 +24,7 @@ export interface IMeal {
     next:boolean
 }
 export interface IDishes{
+    objectId:string,
     time:string,
     dish:Array<IMeal> 
 }

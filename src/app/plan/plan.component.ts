@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { INextMeal, ITodayPlan } from 'src/data/interfaces/shared.interface';
-import { DietData } from 'src/data/models/dietplans';
+import { INextMeal, ITodayPlan } from 'src/data/interfaces/shared.interface'; 
 import { MealDataServices } from '../services/mealsevices.service';
 
 
@@ -12,8 +11,7 @@ import { MealDataServices } from '../services/mealsevices.service';
 })
 
 export class PlanComponent implements OnInit {
-
-  planData = DietData;
+ 
   nextmeal: INextMeal = {
     day: "",
     time: "",
@@ -28,19 +26,15 @@ export class PlanComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.LoadPlan();
-    this.getnextmeal();
+    this.nextmeal = this.mdService.getNextMeal();
+    this.LoadPlan(); 
   }
 
   LoadPlan() {
     this.TodayData.dishes = this.mdService.loadmealDatafortoday();
 
   }
-  getnextmeal() {
-    this.mdService.data.subscribe((data: INextMeal) => {
-      this.nextmeal = data
-    })
-  }
+  
   gotolist() {
     this.router.navigate(['']);
   }

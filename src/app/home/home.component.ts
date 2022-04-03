@@ -10,22 +10,20 @@ import { MealDataServices } from '../services/mealsevices.service';
 })
 export class HomeComponent implements OnInit {
   nextmeal: INextMeal = {
-    day: "",
+    day: `${new Date().toLocaleString('en-us', { weekday: 'short' })}`,
     time: "",
     dishes: []
   };
-  constructor(private mdService: MealDataServices, private router: Router) { }
+
+  constructor(private mdService: MealDataServices, private router: Router) {
+    debugger;
+  }
 
   ngOnInit(): void {
-    let data = this.mdService.loadmealDatafortoday()
-    this.getnesxtmeal();
+    debugger;
+    this.nextmeal = this.mdService.getNextMeal();
+  }
 
-  }
-  getnesxtmeal() {
-    this.mdService.data.subscribe((x: INextMeal) => {
-      this.nextmeal = x;
-    })
-  }
   gotolist() {
     this.router.navigate(['plan']);
   }
