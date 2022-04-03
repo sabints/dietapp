@@ -1,11 +1,13 @@
+import { Observable, of } from "rxjs";
 import { IDishes } from "../interfaces/shared.interface";
 
 export const DietData: Array<IDishes> = [
     {
-        time: "08:00",
+        time: "08:00:00",
+        objectId: "",
         dish: [
             {
-                day: ["Mon", "Wed", "Fri"],
+                day: ["Mon", "Wed", "Fri", "Sun"],
                 next: false,
                 item:
                     [{
@@ -31,8 +33,8 @@ export const DietData: Array<IDishes> = [
 
     },
     {
-        time: "08:30",
-        dish: [
+        time: "08:30:00",
+        objectId: "", dish: [
             {
                 day: ["Mon"],
                 next: false, item:
@@ -56,7 +58,7 @@ export const DietData: Array<IDishes> = [
                     }]
             },
             {
-                day: ["Thu"],
+                day: ["Wed"],
                 next: false, item:
                     [{
                         name: "Chapatti",
@@ -67,7 +69,7 @@ export const DietData: Array<IDishes> = [
                     }]
             },
             {
-                day: ["Fri"],
+                day: ["Thu"],
                 next: false, item:
                     [{
                         name: "Vegetable Broken Wheat Upma",
@@ -81,7 +83,7 @@ export const DietData: Array<IDishes> = [
                     }]
             },
             {
-                day: ["Sat"],
+                day: ["Fri"],
                 next: false, item:
                     [{
                         name: "Vegetable Oats Porridge",
@@ -109,7 +111,7 @@ export const DietData: Array<IDishes> = [
                     }]
             },
             {
-                day: ["Mon"],
+                day: ["Sun"],
                 next: false, item:
                     [{
                         name: "Vegetable Paneer Oats",
@@ -122,8 +124,8 @@ export const DietData: Array<IDishes> = [
         ]
 
     }, {
-        time: "10:30",
-        dish: [
+        time: "10:30:00",
+        objectId: "", dish: [
             {
                 day: ["Mon"],
                 next: false, item:
@@ -158,7 +160,7 @@ export const DietData: Array<IDishes> = [
                     }]
             },
             {
-                day: ["Thu"],
+                day: ["Thu", "Sun"],
                 next: false, item:
                     [{
                         name: "Apple",
@@ -172,8 +174,8 @@ export const DietData: Array<IDishes> = [
 
     },
     {
-        time: "13:30",
-        dish: [
+        time: "13:30:00",
+        objectId: "", dish: [
             {
                 day: ["Mon"],
                 next: false, item:
@@ -298,8 +300,8 @@ export const DietData: Array<IDishes> = [
 
     },
     {
-        time: "16:00",
-        dish: [
+        time: "16:00:00",
+        objectId: "", dish: [
             {
                 day: ["Mon"],
                 next: false, item:
@@ -308,7 +310,7 @@ export const DietData: Array<IDishes> = [
                         unit: "1 Katori",
                     }]
             }, {
-                day: ["Tue"],
+                day: ["Tue", "Sun"],
                 next: false, item:
                     [{
                         name: "Chana Sprouts",
@@ -332,8 +334,8 @@ export const DietData: Array<IDishes> = [
         ]
 
     }, {
-        time: "20:30",
-        dish: [
+        time: "20:30:00",
+        objectId: "", dish: [
             {
                 day: ["Mon"],
                 next: false, item:
@@ -361,7 +363,7 @@ export const DietData: Array<IDishes> = [
                         unit: "0.5 Katori",
                     }]
             }, {
-                day: ["Wed"],
+                day: ["Wed", "Sun"],
                 next: false, item:
                     [{
                         name: "Besan Cheela with Vegetables",
@@ -409,3 +411,5 @@ export const DietData: Array<IDishes> = [
     },
 
 ];
+
+ 
