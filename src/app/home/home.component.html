@@ -37,10 +37,10 @@
 <div class="card plan-list" [ngClass]="{'ngdisplay': ind == 0}" *ngFor="let item of nextmeal;let ind =index">
   <div class="card-body">
     <div class="row">
-      <div class="col-2 icon">
+      <div class="col-3 icon">
         <i class='bx bxs-bowl-rice'></i>
       </div>
-      <div class="col-10 details">
+      <div class="col-9 details">
         <span>{{item.time | Convert24To12 | uppercase}} &nbsp;&nbsp; {{item.time | MealName}}</span>
         <div class="row items">
           <h6 *ngFor="let dish of item.dishes">{{dish.name}} |</h6> 
