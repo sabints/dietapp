@@ -33,7 +33,7 @@ export class MealDataServices {
                 tomorrow.setDate(tomorrow.getDate() + 1);
                 this.day = tomorrow.toLocaleString('en-us', { weekday: 'short' })
             }
-            debugger;
+            
 
 
             todayData = dData.map((elements: any) => {
@@ -51,8 +51,8 @@ export class MealDataServices {
 
     }
 
-    getNextMeal(): INextMeal {
-        debugger
+    getNextMeal(): Array<INextMeal> {
+        
 
         let nmdata: any;
         this.returnDietData().subscribe((dData: any) => {
@@ -76,7 +76,7 @@ export class MealDataServices {
             }).filter((x: any) => x != null)
 
         })
-        return nmdata[0];
+        return nmdata;
     }
 
 

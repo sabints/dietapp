@@ -5,7 +5,9 @@
 @import './assets/vendor/fontawesome-free/scss/solid.scss';
 
 
-
+#content-wrapper{
+   background: rgb(255, 255, 255) !important;
+}
 
  .rounded-border-5 {
     border-radius: 5px; 

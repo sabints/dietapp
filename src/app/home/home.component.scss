@@ -33,10 +33,10 @@ p {
 }
 
 .card-container {
-    background-image: linear-gradient( #330568, #7640b5);
+	background-image: linear-gradient(318deg, #2e7d32, #8bc34a);
 	border-radius: 25px;
 	box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
-	color: #B3B8CD;
+	color: #fff;
 	padding: 30px 0 0;
 	position: relative;
 	width: 350px;
@@ -44,6 +44,9 @@ p {
 	text-align: center;
 	margin: 20px 0;
 	overflow: hidden;
+	h6{
+		color: #fff;
+	} 
 }
 
 .card-container .pro {
@@ -82,10 +85,16 @@ button.primary.ghost {
 }
 
 .skills {
-	background-color: #1F1A36;
+	background-color: #fff;
 	text-align: left;
-	padding: 15px;
-	margin-top: 30px;
+    padding: 0px 15px;
+    margin-top: 30px;
+    text-align: center;
+	h6{
+		color: #19851c;
+		text-transform: capitalize;
+	}
+	 
 }
 
 .skills ul {
@@ -95,10 +104,113 @@ button.primary.ghost {
 }
 
 .skills ul li {
-	border: 1px solid #2D2747;
+	// border: 1px solid #2D2747;
 	border-radius: 2px;
 	display: inline-block;
-	font-size: 12px;
-	margin: 0 7px 7px 0;
+	font-size: 14px;
+	// margin: 0 7px 7px 0;
 	padding: 7px;
+    color: #3c831d;
+    font-weight: 700;
+	i{
+		font-size: 20px;
+		font-weight: 500;
+		position: absolute;
+		color: #559a3c;
+	}
+}
+
+
+
+
+.p_card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 350px;
+    padding-bottom: 15px;
+    background-color: white;
+	margin-top: 2rem;
+}
+.p_card img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    // background-image: linear-gradient(60deg, #2AAA8A, #4169E1);
+    padding: 5px;
+    margin-top: -45px;
+	border-width: 6px;
+    background: #fff;
+	border: 1px solid #8bc34a;
+	border-width: 5px;
+}
+
+.p_card h2{
+    margin: 10px 0;
+}
+
+.cont{
+    width: 90%;
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.6s ease;
+}
+
+.p_card .cont .link i{
+    font-size: 25px;
+    color: rgb(82, 82, 82);
+    transition: all 0.2s ease;
+}
+
+.p_card .cont .link i:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.p_card:hover > .cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 150px;
+}
+
+.p_card:hover > .link{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+.plan-list{
+    background: #eeeeee;
+    border-radius: 18px;
+	margin-bottom: 20px; 
+}
+.icon{
+	
+	border-radius: 18px;
+	font-size: 48px;
+	color: white;
+	background: #7db947;
+    padding: 0px 15px;
+}
+.details{
+	span{
+		font-weight: 600;
+		color: black;
+	}
+	.items{
+		 padding: 0px 12px;
+	}
+	h6{
+		color: rgb(119, 119, 119);
+		text-transform: capitalize !important;
+		font-size: 14px;
+	}
+}
+.ngdisplay{
+	display: none;
 }

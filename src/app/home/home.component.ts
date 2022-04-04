@@ -9,18 +9,14 @@ import { MealDataServices } from '../services/mealsevices.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  nextmeal: INextMeal = {
-    day: `${new Date().toLocaleString('en-us', { weekday: 'short' })}`,
-    time: "",
-    dishes: []
-  };
+  nextmeal:Array<INextMeal> = [ ];
 
   constructor(private mdService: MealDataServices, private router: Router) {
-    debugger;
+
   }
 
   ngOnInit(): void {
-    debugger;
+
     this.nextmeal = this.mdService.getNextMeal();
   }
 

@@ -2,10 +2,9 @@
   <!-- <span class="pro">PRO</span>
       <img src="img/rahul.jpg" alt="user"> -->
   <p>Next Meal @</p>
-  <h3>{{nextmeal.time | Convert24To12 | uppercase}}</h3>
-  <h6>{{nextmeal.day}}</h6>
-
-
+  <h3>{{nextmeal[0].time | Convert24To12 | uppercase}}</h3>
+  <h6>{{nextmeal[0].day}}</h6>
+  <br />
   <!-- <div class="buttons">
           <button class="primary">
               Message
@@ -14,24 +13,39 @@
               Following
           </button>
       </div> -->
-  <div class="skills">
-    <h6>Meal Items to Have</h6>
-    <ul>
-      <li *ngFor="let item of nextmeal.dishes">{{item.name}} | {{item.unit}}</li>
-       
-    </ul>
+  <div class="p_card">
+    <img src="https://www.freeiconspng.com/thumbs/fork-and-knife-png/fork-and-knife-22.png" alt="">
+    <!-- <h2>Full Name</h2> -->
+    <div class="skills">
+      <!-- <h6> &nbsp;Meal Items to Have</h6> -->
+      <ul>
+        <li *ngFor="let item of nextmeal[0].dishes;let ind =index">
+          <i class='bx bx-bowl-hot'></i>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{item.name}}
+          <br />
+          <i class='bx bx-pie-chart-alt'></i>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{item.unit}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="card plan-list" [ngClass]="{'ngdisplay': ind == 0}" *ngFor="let item of nextmeal;let ind =index">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-2 icon">
+        <i class='bx bxs-bowl-rice'></i>
+      </div>
+      <div class="col-10 details">
+        <span>{{item.time | Convert24To12 | uppercase}} &nbsp;&nbsp; {{item.time | MealName}}</span>
+        <div class="row items">
+          <h6 *ngFor="let dish of item.dishes">{{dish.name}} |</h6> 
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<!-- <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date(); a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-  ga('create', 'UA-83834093-1', 'auto');
-  ga('send', 'pageview');
-
-</script> -->

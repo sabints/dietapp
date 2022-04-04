@@ -12,11 +12,7 @@ import { MealDataServices } from '../services/mealsevices.service';
 
 export class PlanComponent implements OnInit {
  
-  nextmeal: INextMeal = {
-    day: "",
-    time: "",
-    dishes: []
-  };
+  nextmeal: Array<INextMeal>=[];
   TodayData: ITodayPlan = {
     day: `${new Date().toLocaleString('en-us', { weekday: 'short' })}`,
     time: new Date().toLocaleTimeString('en-US', { hour: "2-digit", minute: "2-digit" }),

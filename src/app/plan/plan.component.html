@@ -3,7 +3,7 @@
         <div class="card bg-primary text-white shadow rounded-border-30 gradient">
             <div class="card-body">
                 <div class="text-white-50 small">Next Meal @</div>
-                {{ nextmeal.day  | uppercase }} {{ nextmeal.time | Convert24To12 | uppercase }} 
+                {{ nextmeal[0].day  | uppercase }} {{ nextmeal[0].time | Convert24To12 | uppercase }} 
             </div>
         </div>
     </div>
