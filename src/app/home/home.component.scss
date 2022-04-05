@@ -214,11 +214,19 @@ button.primary.ghost {
 
 @media (min-width: 320px) {
 	/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+	.home-container {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 }
 @media (min-width: 480px) {
 	/* smartphones, Android phones, landscape iPhone */
+	.home-container {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 }
-@media (max-width: 600px) {
+@media (min-width: 600px) {
 	/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 	 .home-container {
 		padding-left: 6rem;
@@ -227,11 +235,11 @@ button.primary.ghost {
 }
 @media (min-width: 801px) {
 	/* tablet, landscape iPad, lo-res laptops ands desktops */
-	// .home-container {
-	// 	padding-left: 35rem;
-	// 	padding-right: 35rem;
-	// }
-}
+	.home-container {
+		padding-left: 15rem;
+		padding-right: 15rem;
+	}
+} 
 @media (min-width: 1025px) {
 	/* big landscape tablets, laptops, and desktops */
 	.home-container {
