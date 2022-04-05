@@ -1,28 +1,35 @@
-<div class="row" (click)="gotolist()">
-    <div class="col-lg-6 mb-4">
-        <div class="card bg-primary text-white shadow rounded-border-30 gradient">
-            <div class="card-body">
-                <div class="text-white-50 small">Next Meal @</div>
-                {{ nextmeal[0].day  | uppercase }} {{ nextmeal[0].time | Convert24To12 | uppercase }} 
-            </div>
-        </div>
+<div class="horizontal-scroll-wrapper squares">
+    <div *ngFor="let item of weekDays" [ngClass]="{'active': item ==selectedDay}" (click)="selectday(item)">
+        <span>{{item}}</span>
     </div>
 </div>
+<div class="plan-details">
+    <div *ngFor="let item of planData">
+        <!-- <i class='bx bxs-time-five'></i> -->
+        <div class="header">
+            <span>{{item.time | Convert24To12 |
+                uppercase}} {{item.time | MealName}}
 
-<div class="row">
-
-    <!-- Earnings (Monthly) Card Examp asdasdsle -->
-    <div class="col-xl-3 col-md-6 mb-4 br" *ngFor="let item of TodayData.dishes">
-        <div class="row shadow">
-            <div class="col-4 pc-left">
-                <span class="tm-span">{{item.time}}</span>
-            </div>
-            <div class="col-8 pc-right"> 
-                <div *ngFor="let dish of item.dishes">
-                    <span class="d-block"><i class="fas fa-utensils"></i>&nbsp;{{dish.name}}&nbsp;</span>
-                    <span class="d-block"><i class="fas fa-chart-pie"></i>&nbsp; {{dish.unit}}</span>
+            </span>
+        </div>
+        <div class="dishes">
+            <div class="items" *ngFor="let dish of item.dishes">
+                <div class="icon">
+                    <i class='bx bx-bowl-hot'></i>
+                </div>
+                <div class="dish">
+                    &nbsp; {{dish.name}}
+                    |  {{dish.unit}}
                 </div>
             </div>
+
         </div>
+        <!-- <span>{{item.time | Convert24To12 |
+            uppercase}} {{item.time | MealName}}
+           
+        </span> -->
+
     </div>
+
+
 </div>

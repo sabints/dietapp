@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { INextMeal, ITodayPlan } from 'src/data/interfaces/shared.interface'; 
+import { INextMeal, ITodayPlan } from 'src/data/interfaces/shared.interface';
 import { MealDataServices } from '../services/mealsevices.service';
 
 
@@ -11,28 +11,28 @@ import { MealDataServices } from '../services/mealsevices.service';
 })
 
 export class PlanComponent implements OnInit {
- 
-  nextmeal: Array<INextMeal>=[];
-  TodayData: ITodayPlan = {
-    day: `${new Date().toLocaleString('en-us', { weekday: 'short' })}`,
-    time: new Date().toLocaleTimeString('en-US', { hour: "2-digit", minute: "2-digit" }),
-    dishes: []
-  }
+  public weekDays: Array<string> = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  public day: string = `${new Date().toLocaleString('en-us', { weekday: 'short' })}`;
+  public selectedDay: any = "";
+  planData: any = [];
   constructor(private mdService: MealDataServices, private router: Router) { }
 
-
+  
   ngOnInit(): void {
-    this.nextmeal = this.mdService.getNextMeal();
-    this.LoadPlan(); 
+    this.selectedDay = this.day;
+    this.LoadPlan()
+    
   }
 
   LoadPlan() {
-    this.TodayData.dishes = this.mdService.loadmealDatafortoday();
+    this.planData = this.mdService.loadmealDatafortoday(this.selectedDay);
+    console.log(this.planData);
 
   }
-  
-  gotolist() {
-    this.router.navigate(['']);
+
+  selectday(itemday: string) {
+    this.selectedDay = itemday
+    this.LoadPlan()
   }
 
 }

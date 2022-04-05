@@ -9,15 +9,16 @@ import { MealDataServices } from '../services/mealsevices.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  nextmeal:Array<INextMeal> = [ ];
-
+  nextmeal: Array<INextMeal> = [];
+  planData: any = [];
   constructor(private mdService: MealDataServices, private router: Router) {
 
   }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void { 
     this.nextmeal = this.mdService.getNextMeal();
+    console.log(this.nextmeal);
+    
   }
 
   gotolist() {

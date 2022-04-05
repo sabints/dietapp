@@ -28,3 +28,4 @@ export interface IDishes{
     time:string,
     dish:Array<IMeal> 
 }
+ 

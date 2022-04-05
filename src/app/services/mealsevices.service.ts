@@ -24,25 +24,26 @@ export class MealDataServices {
     setNextMeal(data: any) {
         this.dataSource.next(data);
     }
-    loadmealDatafortoday(): any {
+    loadmealDatafortoday(today?: string): any {
         let todayData: any;
+      let day = today == undefined ? this.day : today;
         this.returnDietData().subscribe((dData: any) => {
 
             if (this.timenow24Hr > "22:45:00") {
                 var tomorrow = new Date();
                 tomorrow.setDate(tomorrow.getDate() + 1);
-                this.day = tomorrow.toLocaleString('en-us', { weekday: 'short' })
+                day = tomorrow.toLocaleString('en-us', { weekday: 'short' })
             }
-            
+
 
 
             todayData = dData.map((elements: any) => {
-                let dish = elements.dish.filter((x: any) => x.day.includes(this.day))
+                let dish = elements.dish.filter((x: any) => x.day.includes(day))
 
                 let meal: ITodaysMeals = {
                     time: elements.time,
                     dishes: dish.length > 0 ? dish[0].item : [],
-                    day: this.day
+                    day: day
                 }
                 return meal
             })
@@ -52,7 +53,7 @@ export class MealDataServices {
     }
 
     getNextMeal(): Array<INextMeal> {
-        
+
 
         let nmdata: any;
         this.returnDietData().subscribe((dData: any) => {
@@ -92,6 +93,8 @@ export class MealDataServices {
     }
 
     returnDietData(): any {
+        console.log(DietData);
+
         return of(Object.assign(DietData))
     }
 
