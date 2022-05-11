@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    this.nextmeal = this.mdService.getNextMeal();
-    console.log(this.nextmeal);
+    this.nextmeal = this.mdService.getNextMeal(); 
     
   }
 

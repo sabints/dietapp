@@ -11,17 +11,35 @@
                 uppercase}} {{item.time | MealName}}
 
             </span>
+            <span title="check for different dish" class="refresh" (click)="alternate(item.objectId)">
+                <i class='bx bx-refresh'></i>
+            </span>
         </div>
         <div class="dishes">
-            <div class="items" *ngFor="let dish of item.dishes">
-                <div class="icon">
-                    <i class='bx bx-bowl-hot'></i>
+            <ng-container *ngIf="item.objectId != altmeal.objectId">
+                <div class="items" *ngFor="let dish of item.dishes">
+                    <div class="icon">
+                        <i class='bx bx-bowl-hot'></i>
+                    </div>
+                    <div class="dish">
+                        &nbsp; {{dish.name}}
+                        | {{dish.unit}}
+                    </div>
                 </div>
-                <div class="dish">
-                    &nbsp; {{dish.name}}
-                    |  {{dish.unit}}
+            </ng-container>
+            <ng-container *ngIf="item.objectId === altmeal.objectId">
+             
+                <div class="items" *ngFor="let altdish of altmeal.mealdata[altmeal.mealcount]">
+                    <div class="icon">
+                        <i class='bx bx-bowl-hot'></i>
+                    </div>
+                    <div class="dish">
+
+                        &nbsp; {{altdish.name}}
+                        | {{altdish.unit}}
+                    </div>
                 </div>
-            </div>
+            </ng-container>
 
         </div>
         <!-- <span>{{item.time | Convert24To12 |

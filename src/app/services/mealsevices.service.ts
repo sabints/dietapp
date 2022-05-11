@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, of } from "rxjs";
-import { IDishes, IMeal, INextMeal, ITodaysMeals } from "src/data/interfaces/shared.interface";
+import { IAltMeal, IDishes, IMeal, INextMeal, ITodaysMeals } from "src/data/interfaces/shared.interface";
 import { DietData } from "src/data/models/dietplans";
 
 @Injectable({
@@ -24,9 +24,28 @@ export class MealDataServices {
     setNextMeal(data: any) {
         this.dataSource.next(data);
     }
+    fetchalternateMeal(objectId: string): any {
+        let altMeal: any;
+        let _objectid = objectId == undefined ? '' : objectId;
+        this.returnDietData().subscribe((dData: any) => { 
+            let items: any = []
+            let alternaltedish: any = dData.filter((x: IDishes) => x.objectId === _objectid)[0];
+            alternaltedish.dish.forEach((element: IMeal) => { 
+                items.push(element.item)
+            });
+            let meal: IAltMeal = {
+                objectId: _objectid,
+                mealcount: alternaltedish.dish.length,
+                mealdata: items
+            }
+            altMeal = meal
+        });
+        return altMeal;
+
+    }
     loadmealDatafortoday(today?: string): any {
         let todayData: any;
-      let day = today == undefined ? this.day : today;
+        let day = today == undefined ? this.day : today;
         this.returnDietData().subscribe((dData: any) => {
 
             if (this.timenow24Hr > "22:45:00") {
@@ -41,6 +60,7 @@ export class MealDataServices {
                 let dish = elements.dish.filter((x: any) => x.day.includes(day))
 
                 let meal: ITodaysMeals = {
+                    objectId: elements.objectId,
                     time: elements.time,
                     dishes: dish.length > 0 ? dish[0].item : [],
                     day: day
@@ -49,12 +69,11 @@ export class MealDataServices {
             })
         });
         return todayData;
-
     }
 
+
+
     getNextMeal(): Array<INextMeal> {
-
-
         let nmdata: any;
         this.returnDietData().subscribe((dData: any) => {
             if (this.timenow24Hr >= "22:45:00") {
@@ -79,8 +98,6 @@ export class MealDataServices {
         })
         return nmdata;
     }
-
-
     fomatTime(time: string) {
         // time = time.substring(0, 3) + ':' + time.substring(3);
         let date: Date = new Date(new Date().toLocaleDateString() + ' ' + time);
@@ -93,8 +110,6 @@ export class MealDataServices {
     }
 
     returnDietData(): any {
-        console.log(DietData);
-
         return of(Object.assign(DietData))
     }
 

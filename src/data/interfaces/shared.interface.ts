@@ -10,6 +10,7 @@ export interface ITodayPlan {
     dishes: Array<ITodaysMeals>
 }
 export interface ITodaysMeals {
+    objectId:string,
     time: string, 
     dishes: Array<IMealItems>
     day: string,
@@ -27,5 +28,11 @@ export interface IDishes{
     objectId:string,
     time:string,
     dish:Array<IMeal> 
+}
+
+export interface IAltMeal{
+    objectId:string,
+    mealdata:IDishes,
+    mealcount:number;
 }
  
