@@ -178,7 +178,7 @@ export const DietData: Array<IDishes> = [
                         unit: "1 katori"
                     }, {
                         name: " Cabage Egg Thoran",
-                        unit: "1 katori"
+                        unit: "1 katori" 
                     }]
             },
             {
